@@ -155,8 +155,10 @@ version = "0.1.0"
 dependencies = [
  "cornucopia_async",
  "deadpool-postgres",
+ "dotenv",
  "futures",
  "postgres-types",
+ "rustls",
  "serde",
  "tokio",
  "tokio-postgres",
@@ -208,6 +210,12 @@ dependencies = [
  "crypto-common",
  "subtle",
 ]
+
+[[package]]
+name = "dotenv"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
 
 [[package]]
 name = "fallible-iterator"
@@ -642,6 +650,7 @@ version = "0.21.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f9d5a6813c0759e4609cd494e8e725babae6a2ca7b62a5536a13daaec6fcb7ba"
 dependencies = [
+ "log",
  "ring 0.17.7",
  "rustls-webpki",
  "sct",
