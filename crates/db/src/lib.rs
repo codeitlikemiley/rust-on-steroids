@@ -1,23 +1,59 @@
 use std::str::FromStr;
 use std::sync::Arc;
-use std::time::SystemTime;
-
 pub use cornucopia_async::Params;
 pub use deadpool_postgres::{Pool, PoolError, Transaction};
-use rustls::client::{ServerCertVerified, ServerCertVerifier};
-use rustls::ServerName;
+use rustls::client::ServerCertVerifier;
 pub use tokio_postgres::Error as TokioPostgresError;
 
 pub use queries::users::User;
 
+
+#[cfg(feature = "production")]
+fn create_tls_config() -> rustls::ClientConfig {
+    let mut root_cert_store = rustls::RootCertStore::empty();
+
+    // Load the certificate file.
+    // or on local machine:
+    // cargo run --bin ssl_generator
+    let cert_file = include_str!("../../../cert/cert.pem"); // replace with your cert.pem path
+    let mut reader = std::io::Cursor::new(cert_file);
+    let certs = rustls_pemfile::certs(&mut reader)
+        .map(|cert_result| cert_result
+            .map(|der_cert| rustls::Certificate(der_cert.to_vec()))
+            .expect("Failed to read certificate"))
+        .collect::<Vec<_>>();
+
+    root_cert_store.add_parsable_certificates(&certs);
+
+    let config = rustls::ClientConfig::builder()
+        .with_safe_defaults()
+        .with_root_certificates(root_cert_store)
+        .with_no_client_auth();
+
+    config
+}
+
+#[cfg(not(feature = "production"))]
+fn create_tls_config() -> rustls::ClientConfig {
+    let mut root_cert_store = rustls::RootCertStore::empty();
+    // Production environment: Secure TLS configuration.
+    // Use rustls' built-in verifier or implement a custom verifier.
+    let mut config = rustls::ClientConfig::builder()
+        .with_safe_defaults()
+        .with_root_certificates(Arc::new(root_cert_store))
+        .with_no_client_auth();
+
+    // Add certificate loading and verification logic here.
+    config
+}
+
+
 pub fn create_pool(database_url: &str) -> deadpool_postgres::Pool {
+
     let config = tokio_postgres::Config::from_str(database_url).unwrap();
 
     let manager = if config.get_ssl_mode() != tokio_postgres::config::SslMode::Disable {
-        let tls_config = rustls::ClientConfig::builder()
-            .with_safe_defaults()
-            .with_custom_certificate_verifier(Arc::new(DummyTlsVerifier))
-            .with_no_client_auth();
+        let tls_config = create_tls_config();
 
         let tls = tokio_postgres_rustls::MakeRustlsConnect::new(tls_config);
         deadpool_postgres::Manager::new(config, tls)
@@ -26,22 +62,6 @@ pub fn create_pool(database_url: &str) -> deadpool_postgres::Pool {
     };
 
     deadpool_postgres::Pool::builder(manager).build().unwrap()
-}
-
-struct DummyTlsVerifier;
-
-impl ServerCertVerifier for DummyTlsVerifier {
-    fn verify_server_cert(
-        &self,
-        _end_entity: &rustls::Certificate,
-        _intermediates: &[rustls::Certificate],
-        _server_name: &ServerName,
-        _scts: &mut dyn Iterator<Item = &[u8]>,
-        _ocsp_response: &[u8],
-        _now: SystemTime,
-    ) -> Result<ServerCertVerified, rustls::Error> {
-        Ok(ServerCertVerified::assertion())
-    }
 }
 
 include!(concat!(env!("OUT_DIR"), "/cornucopia.rs"));

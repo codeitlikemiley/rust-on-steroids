@@ -17,3 +17,5 @@ webpki-roots = "0.26.0"
 cornucopia_async = "0.4.0"
 rustls = { version = "0.21.10", features = ["dangerous_configuration"] }
 dotenv = "0.15.0"
+config = "0.13.4"
+rustls-pemfile = "2.0.0"
