@@ -2,7 +2,6 @@ use std::str::FromStr;
 use std::sync::Arc;
 pub use cornucopia_async::Params;
 pub use deadpool_postgres::{Pool, PoolError, Transaction};
-use rustls::client::ServerCertVerifier;
 pub use tokio_postgres::Error as TokioPostgresError;
 
 pub use queries::users::User;
@@ -35,10 +34,10 @@ fn create_tls_config() -> rustls::ClientConfig {
 
 #[cfg(not(feature = "production"))]
 fn create_tls_config() -> rustls::ClientConfig {
-    let mut root_cert_store = rustls::RootCertStore::empty();
+    let  root_cert_store = rustls::RootCertStore::empty();
     // Production environment: Secure TLS configuration.
     // Use rustls' built-in verifier or implement a custom verifier.
-    let mut config = rustls::ClientConfig::builder()
+    let  config = rustls::ClientConfig::builder()
         .with_safe_defaults()
         .with_root_certificates(Arc::new(root_cert_store))
         .with_no_client_auth();
