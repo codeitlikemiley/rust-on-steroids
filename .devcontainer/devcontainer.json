@@ -7,7 +7,7 @@
 	],
 	"service": "development",
 	"workspaceFolder": "/workspace",
-		
+
 	// Set *default* container specific settings.json values on container create.
 	"customizations": {
 		"vscode": {
@@ -25,7 +25,24 @@
 				"mutantdino.resourcemonitor",
 				"rust-lang.rust-analyzer",
 				"tamasfe.even-better-toml",
-				"serayuzgur.crates"
+				"serayuzgur.crates",
+				"gilescope.arrowdebugging",
+				"alefragnani.Bookmarks",
+				"kevinkassimo.cargo-toml-snippets",
+				"aaron-bond.better-comments",
+				"DioxusLabs.dioxus",
+				"usernamehw.errorlens",
+				"Luxcium.pop-n-lock-theme-vscode",
+				"jinxdash.prettier-rust",
+				"pascalsenn.keyboard-quickfix",
+				"eamodio.gitlens",
+				"dotenv.dotenv-vscode",
+				"panicbit.cargo",
+				"zxh404.vscode-proto3",
+				"redhat.vscode-yaml",
+				"Gruntfuggly.todo-tree",
+				"hbenl.vscode-test-explorer",
+				"Swellaby.vscode-rust-test-adapter"
 			]
 		}
 	},
