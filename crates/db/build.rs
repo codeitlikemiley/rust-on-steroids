@@ -2,18 +2,24 @@ use std::env;
 use std::path::Path;
 
 fn main() {
-    // Compile our SQL
     cornucopia();
 }
 
 fn cornucopia() {
     // For the sake of simplicity, this example uses the defaults.
     let queries_path = "queries";
+    dbg!(&queries_path);
 
     let out_dir = env::var_os("OUT_DIR").unwrap();
+    dbg!(&out_dir);
     let file_path = Path::new(&out_dir).join("cornucopia.rs");
+    dbg!(&file_path);
+    let db_url = match env::var_os("DATABASE_URL") {
+        Some(url) => url,
+        None => "postgresql://postgres:@127.0.0.1:5432/nails?sslmode=disable".to_string().into(),
+    };
+    dbg!(&db_url);
 
-    let db_url = env::var_os("DATABASE_URL").unwrap();
 
     // Rerun this build script if the queries or migrations change.
     println!("cargo:rerun-if-changed={queries_path}");
@@ -29,6 +35,8 @@ fn cornucopia() {
         .arg(db_url)
         .output()
         .unwrap();
+
+    dbg!(&output);
 
     // If Cornucopia couldn't run properly, try to display the error.
     if !output.status.success() {

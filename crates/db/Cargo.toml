@@ -6,13 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cornucopia_async = "0.4.0"
 deadpool-postgres = "0.10.5"
 futures = "0.3.29"
 postgres-types = "0.2.6"
-rustls = "0.22.1"
 serde = { version = "1.0.193", features = ["derive"] }
 tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
 tokio-postgres = "0.7.10"
 tokio-postgres-rustls = "0.10.0"
 webpki-roots = "0.26.0"
+cornucopia_async = "0.4.0"
