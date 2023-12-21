@@ -13,11 +13,11 @@ fn main() -> io::Result<()> {
     }
 
     let privkey_path = dir_path.join("private_key.pem");
-    let mut file = File::create(&privkey_path)?;
+    let mut file = File::create(privkey_path)?;
     file.write_all(cert.serialize_private_key_pem().as_bytes())?;
 
     let cert_path = dir_path.join("cert.pem");
-    let mut file = File::create(&cert_path)?;
+    let mut file = File::create(cert_path)?;
 
     match cert.serialize_pem() {
         Ok(pem) => file.write_all(pem.as_bytes())?,

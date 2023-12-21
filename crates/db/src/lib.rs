@@ -37,13 +37,13 @@ fn create_tls_config() -> rustls::ClientConfig {
     let  root_cert_store = rustls::RootCertStore::empty();
     // Production environment: Secure TLS configuration.
     // Use rustls' built-in verifier or implement a custom verifier.
-    let  config = rustls::ClientConfig::builder()
-        .with_safe_defaults()
-        .with_root_certificates(Arc::new(root_cert_store))
-        .with_no_client_auth();
+
 
     // Add certificate loading and verification logic here.
-    config
+    rustls::ClientConfig::builder()
+        .with_safe_defaults()
+        .with_root_certificates(Arc::new(root_cert_store))
+        .with_no_client_auth()
 }
 
 
