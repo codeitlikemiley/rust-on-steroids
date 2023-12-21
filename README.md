@@ -1,3 +1,3 @@
-## Rust on Nails
+# Fullstack Rust Dev
 
-Built with the [Rust on Nails](https://rust-on-nails.com/) architecture for secure full stack web applications.
+Build Fullstack Web Application with Rust.

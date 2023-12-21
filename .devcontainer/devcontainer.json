@@ -22,6 +22,7 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"vadimcn.vscode-lldb",
+				"hbenl.vscode-test-explorer",
 				"mutantdino.resourcemonitor",
 				"rust-lang.rust-analyzer",
 				"tamasfe.even-better-toml",
@@ -41,8 +42,11 @@
 				"zxh404.vscode-proto3",
 				"redhat.vscode-yaml",
 				"Gruntfuggly.todo-tree",
-				"hbenl.vscode-test-explorer",
-				"Swellaby.vscode-rust-test-adapter"
+				"Swellaby.vscode-rust-test-adapter",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"github.vscode-github-actions",
+				"bierner.markdown-mermaid"
 			]
 		}
 	},
