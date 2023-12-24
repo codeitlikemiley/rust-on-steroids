@@ -8,6 +8,6 @@ edition = "2021"
 [dependencies]
 axum = "0.7.2"
 db = { version = "0.1.0", path = "../db" }
-tokio = { version = "1.35.1", default-features = false, features = ["macros", "fs", "rt-multi-thread"] }
+tokio = { version = "1.35.1",  features = ["full"] }
 log = "0.4.20"
 dotenv = "0.15.0"
