@@ -15,6 +15,12 @@ Rust Dev Machine ready to be used by you and your team with either Codespace or 
 - Devcontainer
 
 ## Usage
+- clone this repo 
+- 
+```sh
+git clone https://github.com/codeitlikemiley/rust-on-steroids YOUR_NEXT_BIG_PROJECT
+```
+
 - update `.env.mysql` or `.env.postgres` depending on your db of choice, then `cp .env.example .env` on `.devcontainer` folder
 
 e.g. change Database URL on `.devcontainer/.env` if you wanna use external service like planetscale, you can set it here.
