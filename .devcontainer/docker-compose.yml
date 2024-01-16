@@ -1,9 +1,9 @@
 version: '3.8'
 
 volumes:
-  #postgres-data:
+  postgres-data:
   target:
-  #node_modules:
+  node_modules:
  
 services:
   app:
@@ -26,6 +26,4 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
-
-    working_dir: /workspace
     
