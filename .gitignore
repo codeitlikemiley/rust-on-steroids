@@ -4,3 +4,7 @@ cert
 .env
 .bin
 .vscode
+*.bak
+node_modules/
+vendor/
+*.asc
