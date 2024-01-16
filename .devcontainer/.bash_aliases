@@ -95,6 +95,7 @@ function .b() {
     echo "Sourcing bash config files"
     if [ -f "$HOME/.bash_profile" ]; then
         source $HOME/.profile
+    fi
     if [ -f "$HOME/.bashrc" ]; then
         source $HOME/.bashrc
     fi
@@ -102,6 +103,7 @@ function .b() {
         source $HOME/.bash_aliases
     fi
 }
+
 
 function .z() {
     echo "Sourcing zsh config files"
