@@ -2,6 +2,7 @@ target
 .idea
 cert
 .env
+!.devcontainer/.env
 .bin
 .vscode
 *.bak
