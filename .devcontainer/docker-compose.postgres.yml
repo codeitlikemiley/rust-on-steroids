@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:14-alpine
+    env_file: 
+      - .env.postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
