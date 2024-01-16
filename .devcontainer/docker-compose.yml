@@ -6,7 +6,7 @@ volumes:
   node_modules:
  
 services:
-  app:
+  development:
     build: 
       context: .
       dockerfile: Dockerfile
