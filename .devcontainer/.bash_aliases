@@ -26,6 +26,7 @@ alias rmd="git rm -r \$(git ls-files --deleted)"
 # Undo all
 alias nah="git reset --hard;git clean -df"
 
+# Tag Version / Overwrite Tag Version
 function v() {
     if [ -z "$1" ]; then
         echo "No tag/version provided"
@@ -101,19 +102,5 @@ function .b() {
     fi
     if [ -f "$HOME/.bash_aliases" ]; then
         source $HOME/.bash_aliases
-    fi
-}
-
-
-function .z() {
-    echo "Sourcing zsh config files"
-    if [ -f "$HOME/.zshrc" ]; then
-        source $HOME/.zshrc
-    fi
-    if [ -f "$HOME/.zshenv" ]; then
-        source $HOME/.zshenv
-    fi
-    if [ -f "$HOME/.zprofile" ]; then
-        source $HOME/.zprofile
     fi
 }
