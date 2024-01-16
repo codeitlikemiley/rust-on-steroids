@@ -4,7 +4,7 @@ Rust Dev Machine ready to be used by you and your team with either Codespace or 
 
 ## Built for Rust
 - Uses Very Fast Linker [MOLD](https://github.com/rui314/mold) , set as default linker
-- Uses [Sccache] for caching crates
+- Uses [Sccache](https://github.com/mozilla/sccache) for caching crates
 - Bonus Vscode Plugins for 10X Rust Developers
   - [cargo runner](https://marketplace.visualstudio.com/items?itemName=masterustacean.cargo-runner) - Run , Test , Doc-Test , Build Without Mental Overhead
   - [cargo bin](https://marketplace.visualstudio.com/items?itemName=masterustacean.cargo-bin) - Run any cargo bin commands on your $CARGO_HOME/bin
