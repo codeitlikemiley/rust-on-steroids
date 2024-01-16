@@ -33,14 +33,24 @@ DATABASE_URL=postgresql://postgres:secret@db:5432/db_name?sslmode=disable
 
 - Open Command Palette type `Open Folder in Container` or `Create new Codespace`
 
+- Open Command Palette type `Open Terminal`
+
+```sh
+cd crates
+```
+
 ## CLI Tools Bundled
 
-- sqlx-cli
-- cargo-chef
-- cargo-generate
-- cargo-hack
-- cargo-lambda
-- cargo-leptos
-- cargo-nextest
-- cargo-shuttle
-- cargo-watch
+- [sqlx-cli](https://github.com/launchbadge/sqlx/blob/main/sqlx-cli/README.md)
+- [cargo-chef](https://github.com/LukeMathWalker/cargo-chef)
+- [cargo-generate](https://github.com/cargo-generate/cargo-generate)
+- [cargo-hack](https://github.com/taiki-e/cargo-hack)
+- [cargo-lambda](https://www.cargo-lambda.info/guide/getting-started.html)
+- [cargo-leptos](https://book.leptos.dev/ssr/21_cargo_leptos.html)
+- [cargo-nextest](https://nexte.st)
+- [cargo-shuttle](https://docs.shuttle.rs/introduction/welcome)
+- [cargo-watch](https://watchexec.github.io/docs/glob-patterns.html)
+- [cloak](https://cloak.software/docs/getting-started/introduction/)
+- [snip-cli](https://github.com/codeitlikemiley/snip-cli)
+- [ws-cli](https://github.com/codeitlikemiley/ws-cli)
+- [pulumi](https://www.pulumi.com/docs/)
