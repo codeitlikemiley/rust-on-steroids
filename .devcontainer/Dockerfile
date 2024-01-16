@@ -1,4 +1,4 @@
-FROM codeitlikemiley/ros:latest AS development
+FROM codeitlikemiley/ros:latest AS app
 
 COPY ps1.bash .
 RUN cat ps1.bash >> ~/.bashrc && sudo rm ps1.bash
