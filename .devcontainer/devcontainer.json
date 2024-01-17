@@ -1,14 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
-	"name": "Rust on Steroids (ROS)",
+	"name": "Rust On Steroids",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"dockerComposeFile": [
 		"docker-compose.yml"
-		// "docker-compose.postgres.yml"
-		// "docker-compose.mysql.yml",
 	],
-	"service": "development",
-	"workspaceFolder": "/workspace",
-	// Set *default* container specific settings.json values on container create.
+    "service": "development",
+    "workspaceFolder": "/workspace",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Configure tool-specific properties.
 	"customizations": {
+		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {
 				"rust-analyzer.procMacro.ignored": {
@@ -17,7 +21,7 @@
 						// "component",
 						"server"
 					]
-				   // add More macros
+					// add More macros
 				},
 				"diffEditor.experimental.showMoves": true,
 				"diffEditor.codeLens": true,
@@ -28,8 +32,8 @@
 				},
 				"rust-analyzer.checkOnSave.command": "clippy"
 			},
-			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
+				"streetsidesoftware.code-spell-checker",
 				"vadimcn.vscode-lldb",
 				"ms-vscode.test-adapter-converter",
 				"hbenl.vscode-test-explorer",
@@ -60,11 +64,11 @@
 				"bierner.markdown-checkbox",
 				"bierner.markdown-footnotes",
 				"bierner.markdown-preview-github-styles",
-				"bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},
-
 	"remoteEnv": {
 		// You can create env vars on your local machine and they will get passed into your container.
 		"EMAIL": "${localEnv:EMAIL}",
@@ -72,13 +76,10 @@
 		// Pass in the host directory for Docker mount commands from inside the container
 		"HOST_PROJECT_PATH": "${localWorkspaceFolder}"
 	},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5432],
-
+	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "rustc --version",
-
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode"
 }
