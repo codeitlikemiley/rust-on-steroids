@@ -79,11 +79,37 @@ code /workspace/private.asc
 gpg --import private.asc
 ```
 
-## Git Config
-- open .devcontainer/Dockerfile and uncomment
+## Set up git
+- open terminal and run
 
 ```yml
-# Uncomment
-# RUN git config --global user.email "codeitlikemiley@gmail.com"
-# RUN  git config --global user.name "Uriah Galang"
+gs
+```
+
+Note: you can only git commit inside vscode after you run gs and import gpg key 
+
+## Creating GRPC Server and Services
+
+- generate service
+```sh
+cd services
+generate example 
+# the command below can be optionally run
+ws add services/example
+```
+
+- Generate a new Server
+```sh
+generate server
+// default service is example
+# we need to add server to workspace
+ws add server
+```
+
+## Known Issue
+Some pre-installed CLI are incompatible , e.g. cargo-nextest , if you cannot run that 
+the solution is to run
+
+```sh
+cargo binstall -y --force cargo-nextest
 ```
