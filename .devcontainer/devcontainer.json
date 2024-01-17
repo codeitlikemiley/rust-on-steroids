@@ -2,8 +2,6 @@
 	"name": "Rust on Steroids (ROS)",
 	"dockerComposeFile": [
 		"docker-compose.yml"
-		// "docker-compose.postgres.yml"
-		// "docker-compose.mysql.yml",
 	],
 	"service": "development",
 	"workspaceFolder": "/workspace",
@@ -60,7 +58,8 @@
 				"bierner.markdown-checkbox",
 				"bierner.markdown-footnotes",
 				"bierner.markdown-preview-github-styles",
-				"bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},

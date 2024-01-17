@@ -1,14 +1,10 @@
 FROM codeitlikemiley/ros:latest AS app
 
-COPY ps1.bash .
-RUN cat ps1.bash >> ~/.bashrc && sudo rm ps1.bash
+ARG USERNAME=vscode
 
 COPY .bash_aliases /home/vscode/.bash_aliases
-
-# Enable our git hooks and set the permisisons on docker sock.
-RUN echo 'git config core.hooksPath /workspace/.devcontainer/.githooks' >> ~/.bashrc
+RUN echo 'eval "$(starship init bash)"' >> /home/vscode/.bashrc
 
 # all the volumes configured in the docker-compose.yml
-ARG USERNAME=vscode
 RUN sudo mkdir -p /workspace/target && sudo chown $USERNAME:$USERNAME /workspace/target
 #RUN sudo mkdir -p /workspace/crates/asset-pipeline/node_modules && sudo chown $USERNAME:$USERNAME /workspace/crates/asset-pipeline/node_modules
