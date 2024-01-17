@@ -4,6 +4,7 @@ ARG USERNAME=vscode
 
 COPY .bash_aliases /home/vscode/.bash_aliases
 RUN echo 'eval "$(starship init bash)"' >> /home/vscode/.bashrc
+RUN echo 'git config core.hooksPath /workspace/.devcontainer/.githooks' >> ~/.bashrc
 
 # all the volumes configured in the docker-compose.yml
 RUN sudo mkdir -p /workspace/target && sudo chown $USERNAME:$USERNAME /workspace/target
