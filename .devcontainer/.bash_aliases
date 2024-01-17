@@ -108,9 +108,9 @@ function .b() {
 
 function generate() {
     if [ "$1" == "server" ]; then
-        cargo generate --git codeitlikemiley/server_template --name "$2"
+        cargo generate codeitlikemiley/server_template --name "$2"
     elif [ "$1" == "service" ]; then
-        cargo generate --git codeitlikemiley/services_template --name "$2"
+        cargo generate codeitlikemiley/services_template --name "$2"
     else
         echo "Invalid option. Please use 'server' or 'service'."
     fi
