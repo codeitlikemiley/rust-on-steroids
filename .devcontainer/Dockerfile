@@ -1,4 +1,4 @@
-FROM codeitlikemiley/ros:latest AS app
+FROM codeitlikemiley/ros:latest AS development
 
 ARG USERNAME=vscode
 
