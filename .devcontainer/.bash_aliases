@@ -4,6 +4,7 @@
 alias ss='git status'
 alias log="git log --all --decorate --oneline --graph"
 alias pick='git cherry-pick'
+alias gs='git config --global user.name \$NAME && git config --global user.email \$EMAIL'
 
 alias aa='git add .'
 alias cam='git commit -a -m'

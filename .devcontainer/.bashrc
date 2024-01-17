@@ -116,10 +116,10 @@ fi
 export PATH=$PATH:/home/vscode/.pulumi/bin
 
 if command -v starship >/dev/null 2>&1; then
- eval "$(starship init zsh)"
+ eval "$(starship init bash)"
 fi
 
 if command -v zoxide >/dev/null 2>&1; then
- eval "$(zoxide init zsh)"
+ eval "$(zoxide init bash)"
 fi
 
