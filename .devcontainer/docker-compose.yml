@@ -1,7 +1,6 @@
 version: '3.8'
 
-volumes:
-  target:
+
  
 services:
   development:
@@ -17,3 +16,6 @@ services:
       - target:/workspace/target
     command: sleep infinity
     
+volumes:
+  target:
+  node_modules:
