@@ -9,9 +9,7 @@ services:
         - .env
     volumes:
       - ..:/workspace:cached
-      - target:/workspace/target
     command: sleep infinity
     
 volumes:
-  target:
   node_modules:
