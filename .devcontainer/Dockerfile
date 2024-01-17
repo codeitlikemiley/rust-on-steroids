@@ -3,7 +3,7 @@ FROM codeitlikemiley/ros:latest AS development
 ARG USERNAME=vscode
 
 COPY .bash_aliases /home/vscode/.bash_aliases
-RUN echo '[ -f "/usr/local/cargo/bin/starship" ] && eval "$(starship init zsh)"' >> /home/vscode/.bashrc
+COPY .bashrc /home/vscode/.bashrc
 # Uncomment
 #RUN git config --global user.email "codeitlikemiley@gmail.com"
 #RUN  git config --global user.name "Uriah Galang"
