@@ -54,3 +54,27 @@ cd crates
 - [snip-cli](https://github.com/codeitlikemiley/snip-cli)
 - [ws-cli](https://github.com/codeitlikemiley/ws-cli)
 - [pulumi](https://www.pulumi.com/docs/)
+
+## GPG Keys Issue?
+
+- Export keys
+```sh
+gpg --list-secret-keys
+gpg --armor --export-secret-keys [key-ID] > privatekey.asc
+```
+
+- Copy the key
+```
+cat privatekey.asc | pbcopy
+```
+
+- Create a new file on /workspace/private.asc and paste the key there
+
+```sh
+code /workspace/private.asc
+```
+
+- Import they key
+```sh
+gpg --import private.asc
+```
