@@ -114,7 +114,10 @@ fi
 
 # add Pulumi to the PATH
 export PATH=$PATH:/home/vscode/.pulumi/bin
-[ -f "$HOME/.cargo/bin/starship" ] && eval "$(starship init zsh)"
+
+if command -v starship >/dev/null 2>&1; then
+ eval "$(starship init zsh)"
+fi
 
 if command -v zoxide >/dev/null 2>&1; then
  eval "$(zoxide init zsh)"
