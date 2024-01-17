@@ -78,3 +78,12 @@ code /workspace/private.asc
 ```sh
 gpg --import private.asc
 ```
+
+## Git Config
+- open .devcontainer/Dockerfile and uncomment
+
+```yml
+# Uncomment
+# RUN git config --global user.email "codeitlikemiley@gmail.com"
+# RUN  git config --global user.name "Uriah Galang"
+```
